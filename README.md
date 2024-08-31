@@ -7,6 +7,7 @@ My First protocol buffers (protobuf) test
 ```sh
 pip install protobuf
 
+&"C:\protoc\bin\protoc.exe" --proto_path=./proto --python_out=./src ./proto/AddressBook.proto
 &"C:\protoc\bin\protoc.exe" --proto_path=./proto --pyi_out=./src ./proto/AddressBook.proto
 
 python.exe .\src\__init__.py
