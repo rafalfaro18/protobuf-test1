@@ -17,10 +17,10 @@ phone.type = AddressBook_pb2.Person.PHONE_TYPE_MOBILE
 person2 = address_book.people.add()
 
 person2.id = 2345
-person2.name = "John Doe 2"
-person2.email = "example@example.com"
+person2.name = "John Doe 3"
+person2.email = "example3@example.com"
 phone2 = person2.phones.add()
-phone2.number = "8888-8888"
+phone2.number = "8888-8889"
 phone2.type = AddressBook_pb2.Person.PHONE_TYPE_MOBILE
 
 ab_text = text_format.MessageToString(address_book)
@@ -38,7 +38,8 @@ with open(file_name_str, "rt") as f:
   text_format.Parse(ab2_text, address_book2)
   f.close()
 
-print(address_book2.people.pop().name)
+print(address_book2.people.__getitem__(0).name)
+print(address_book2.people.__getitem__(1).name)
 
 file_name_bin = os.path.join("./tests/", "AddressBook.binpb")
 
@@ -54,4 +55,5 @@ with open(file_name_bin, "rb") as f:
   address_book3.ParseFromString(f.read())
   f.close()
 
-print(address_book3.people.pop().name)
+print(address_book3.people.__getitem__(0).name)
+print(address_book2.people.__getitem__(1).name)

@@ -8,11 +8,11 @@ people {
   }
 }
 people {
-  name: "John Doe 2"
+  name: "John Doe 3"
   id: 2345
-  email: "example@example.com"
+  email: "example3@example.com"
   phones {
-    number: "8888-8888"
+    number: "8888-8889"
     type: PHONE_TYPE_MOBILE
   }
 }
