@@ -9,7 +9,7 @@ pip install protobuf
 
 &"C:\protoc\bin\protoc.exe" --proto_path=./proto --python_out=./src ./proto/AddressBook.proto
 &"C:\protoc\bin\protoc.exe" --proto_path=./proto --pyi_out=./src ./proto/AddressBook.proto
-&"C:\protoc\bin\protoc.exe" --proto_path=./proto --plugin="protoc-gen-js=C:\protobuf-javascript\bin\protoc-gen-js.exe" --js_out=./src ./proto/AddressBook.proto
+&"C:\protoc\bin\protoc.exe" --proto_path=./proto --plugin="protoc-gen-js=C:\protobuf-javascript\bin\protoc-gen-js.exe" --js_out=library=myproto_libs,binary:./src ./proto/AddressBook.proto
 
 python.exe .\src\__init__.py
 ```
