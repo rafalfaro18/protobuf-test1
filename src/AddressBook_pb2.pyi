@@ -7,7 +7,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Person(_message.Message):
-    __slots__ = ("name", "id", "email", "phones")
+    __slots__ = ("name", "id", "email", "phones", "profile_picture")
     class PhoneType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
         __slots__ = ()
         PHONE_TYPE_UNSPECIFIED: _ClassVar[Person.PhoneType]
@@ -29,11 +29,13 @@ class Person(_message.Message):
     ID_FIELD_NUMBER: _ClassVar[int]
     EMAIL_FIELD_NUMBER: _ClassVar[int]
     PHONES_FIELD_NUMBER: _ClassVar[int]
+    PROFILE_PICTURE_FIELD_NUMBER: _ClassVar[int]
     name: str
     id: int
     email: str
     phones: _containers.RepeatedCompositeFieldContainer[Person.PhoneNumber]
-    def __init__(self, name: _Optional[str] = ..., id: _Optional[int] = ..., email: _Optional[str] = ..., phones: _Optional[_Iterable[_Union[Person.PhoneNumber, _Mapping]]] = ...) -> None: ...
+    profile_picture: bytes
+    def __init__(self, name: _Optional[str] = ..., id: _Optional[int] = ..., email: _Optional[str] = ..., phones: _Optional[_Iterable[_Union[Person.PhoneNumber, _Mapping]]] = ..., profile_picture: _Optional[bytes] = ...) -> None: ...
 
 class AddressBook(_message.Message):
     __slots__ = ("people",)

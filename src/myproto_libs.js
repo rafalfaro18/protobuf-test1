@@ -127,7 +127,8 @@ name: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
 id: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f,
 email: (f = jspb.Message.getField(msg, 3)) == null ? undefined : f,
 phonesList: jspb.Message.toObjectList(msg.getPhonesList(),
-    proto.tutorial.Person.PhoneNumber.toObject, includeInstance)
+    proto.tutorial.Person.PhoneNumber.toObject, includeInstance),
+profilePicture: msg.getProfilePicture_asB64()
   };
 
   if (includeInstance) {
@@ -180,6 +181,10 @@ proto.tutorial.Person.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.tutorial.Person.PhoneNumber;
       reader.readMessage(value,proto.tutorial.Person.PhoneNumber.deserializeBinaryFromReader);
       msg.addPhones(value);
+      break;
+    case 5:
+      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      msg.setProfilePicture(value);
       break;
     default:
       reader.skipField();
@@ -237,6 +242,13 @@ proto.tutorial.Person.serializeBinaryToWriter = function(message, writer) {
       4,
       f,
       proto.tutorial.Person.PhoneNumber.serializeBinaryToWriter
+    );
+  }
+  f = /** @type {!(string|Uint8Array)} */ (jspb.Message.getField(message, 5));
+  if (f != null) {
+    writer.writeBytes(
+      5,
+      f
     );
   }
 };
@@ -591,6 +603,66 @@ proto.tutorial.Person.prototype.addPhones = function(opt_value, opt_index) {
  */
 proto.tutorial.Person.prototype.clearPhonesList = function() {
   return this.setPhonesList([]);
+};
+
+
+/**
+ * optional bytes profile_picture = 5;
+ * @return {!(string|Uint8Array)}
+ */
+proto.tutorial.Person.prototype.getProfilePicture = function() {
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * optional bytes profile_picture = 5;
+ * This is a type-conversion wrapper around `getProfilePicture()`
+ * @return {string}
+ */
+proto.tutorial.Person.prototype.getProfilePicture_asB64 = function() {
+  return /** @type {string} */ (jspb.Message.bytesAsB64(
+      this.getProfilePicture()));
+};
+
+
+/**
+ * optional bytes profile_picture = 5;
+ * Note that Uint8Array is not supported on all browsers.
+ * @see http://caniuse.com/Uint8Array
+ * This is a type-conversion wrapper around `getProfilePicture()`
+ * @return {!Uint8Array}
+ */
+proto.tutorial.Person.prototype.getProfilePicture_asU8 = function() {
+  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
+      this.getProfilePicture()));
+};
+
+
+/**
+ * @param {!(string|Uint8Array)} value
+ * @return {!proto.tutorial.Person} returns this
+ */
+proto.tutorial.Person.prototype.setProfilePicture = function(value) {
+  return jspb.Message.setField(this, 5, value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.tutorial.Person} returns this
+ */
+proto.tutorial.Person.prototype.clearProfilePicture = function() {
+  return jspb.Message.setField(this, 5, undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.tutorial.Person.prototype.hasProfilePicture = function() {
+  return jspb.Message.getField(this, 5) != null;
 };
 
 

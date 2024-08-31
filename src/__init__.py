@@ -10,6 +10,7 @@ person = address_book.people.add()
 person.id = 2345
 person.name = "John Doe 2"
 person.email = "example@example.com"
+person.profile_picture = bytes("Test String", "utf-8")
 phone = person.phones.add()
 phone.number = "8888-8888"
 phone.type = AddressBook_pb2.Person.PHONE_TYPE_MOBILE
@@ -40,6 +41,7 @@ with open(file_name_str, "rt") as f:
 
 print(address_book2.people.__getitem__(0).name)
 print(address_book2.people.__getitem__(1).name)
+print(address_book2.people.__getitem__(0).profile_picture.decode("utf-8"))
 
 file_name_bin = os.path.join("./tests/", "AddressBook.binpb")
 
@@ -56,4 +58,5 @@ with open(file_name_bin, "rb") as f:
   f.close()
 
 print(address_book3.people.__getitem__(0).name)
-print(address_book2.people.__getitem__(1).name)
+print(address_book3.people.__getitem__(1).name)
+print(address_book3.people.__getitem__(0).profile_picture.decode("utf-8"))

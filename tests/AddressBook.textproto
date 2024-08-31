@@ -6,6 +6,7 @@ people {
     number: "8888-8888"
     type: PHONE_TYPE_MOBILE
   }
+  profile_picture: "Test String"
 }
 people {
   name: "John Doe 3"

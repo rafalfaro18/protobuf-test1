@@ -20,6 +20,7 @@ message Person {
   }
 
   repeated PhoneNumber phones = 4;
+  optional bytes profile_picture = 5;
 }
 
 message AddressBook {
