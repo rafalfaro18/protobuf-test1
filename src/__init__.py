@@ -1,6 +1,7 @@
 import AddressBook_pb2
+import google.protobuf.text_format as text_format
 
-file_name = "AddressBook.dump"
+file_name = "AddressBook.textproto"
 address_book = AddressBook_pb2.AddressBook()
 person = address_book.people.add()
 
@@ -11,16 +12,19 @@ phone = person.phones.add()
 phone.number = "8888-8888"
 phone.type = AddressBook_pb2.Person.PHONE_TYPE_MOBILE
 
+ab_text = text_format.MessageToString(address_book)
+
 # Save address book
-with open(file_name, "wb") as f:
-  f.write(address_book.SerializeToString())
+with open(file_name, "wt") as f:
+  f.write(ab_text)
   f.close()
 
 address_book2 = AddressBook_pb2.AddressBook()
 
 # Read the existing address book.
-with open(file_name, "rb") as f:
-  address_book2.ParseFromString(f.read())
+with open(file_name, "rt") as f:
+  ab2_text = f.read()
+  text_format.Parse(ab2_text, address_book2)
   f.close()
 
 print(address_book2.people.pop().name)

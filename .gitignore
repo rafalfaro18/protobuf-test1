@@ -1,3 +1,3 @@
-*.dump
+*.textproto
 .venv
 */*__pycache__
