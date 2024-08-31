@@ -15,4 +15,4 @@ python.exe .\src\__init__.py
 
 ## Notes
 
-- **DO NOT** modify any file with *_pb2.py* suffix in the filename. These files are meant to be auto generated with protoc cli tool from source .proto files in proto folder.
+- **DO NOT** modify any file with *_pb2.py* or *_pb2.pyi* suffix in the filename. These files are meant to be auto generated with protoc cli tool from source .proto files in proto folder.
