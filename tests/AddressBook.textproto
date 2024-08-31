@@ -1,0 +1,18 @@
+people {
+  name: "John Doe 2"
+  id: 2345
+  email: "example@example.com"
+  phones {
+    number: "8888-8888"
+    type: PHONE_TYPE_MOBILE
+  }
+}
+people {
+  name: "John Doe 2"
+  id: 2345
+  email: "example@example.com"
+  phones {
+    number: "8888-8888"
+    type: PHONE_TYPE_MOBILE
+  }
+}
